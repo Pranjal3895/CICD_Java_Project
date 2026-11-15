@@ -30,18 +30,16 @@ Log into your MySQL server and create the required database:
 ```sql
 CREATE DATABASE blog_db;
 
-*(Spring Boot JPA is configured with `ddl-auto=update`, so the `posts` table will be generated automatically when the app starts.)*
-
-### 2. Configure Credentials
-
-Open `src/main/resources/application.properties` and update your local MySQL username and password:
-
-```properties
-spring.datasource.username=root
-spring.datasource.password=your_mysql_password
-
 ```
 
+*(Spring Boot JPA is configured with `ddl-auto=update`, so the `posts` table will be generated automatically when the app starts.)*
+
+2. Configure Credentials
+Open src/main/resources/application.properties and update your local MySQL username and password:
+```
+spring.datasource.username=root
+spring.datasource.password=your_mysql_password
+```
 ### 3. Build and Run Locally
 
 Open a terminal in the project root directory and run:
