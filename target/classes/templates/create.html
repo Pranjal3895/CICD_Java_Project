@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Article</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f9f9f9; color: #333; }
+        .container { max-width: 600px; margin: auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        input, textarea { width: 100%; padding: 10px; margin: 10px 0 20px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        textarea { height: 150px; }
+        .btn { background: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+        a { text-decoration: none; color: #666; margin-left: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>New Article</h1>
+        <form action="#" th:action="@{/save}" th:object="${post}" method="POST">
+            <label>Title:</label>
+            <input type="text" th:field="* {title}" placeholder="Enter post title" required />
+
+            <label>Content:</label>
+            <textarea th:field="* {content}" placeholder="Write your article content here..." required></textarea>
+
+            <button type="submit" class="btn">Publish</button>
+            <a href="/">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>

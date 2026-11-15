@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Java Blog</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f9f9f9; color: #333; }
+        .container { max-width: 700px; margin: auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        a { text-decoration: none; color: #0066cc; }
+        .post { border-bottom: 1px solid #eee; padding: 20px 0; }
+        .post:last-child { border-bottom: none; }
+        .btn { display: inline-block; background: #0066cc; color: white; padding: 10px 15px; border-radius: 4px; margin-bottom: 20px; }
+        small { color: #888; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DevOps Learning Blog</h1>
+        <a class="btn" href="/new">+ Create New Article</a>
+        
+        <div th:if="${listPosts.empty}">
+            <p>No articles found. Create your first one!</p>
+        </div>
+
+        <div th:each="post : ${listPosts}" class="post">
+            <h2 th:text="${post.title}">Post Title</h2>
+            <small th:text="${post.createdAt}">Timestamp</small>
+            <p th:text="${post.content}">Post Content</p>
+        </div>
+    </div>
+</body>
+</html>
